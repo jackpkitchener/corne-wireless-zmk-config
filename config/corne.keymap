@@ -68,11 +68,29 @@
 
         layer_3 {
             bindings = <
-&kp I             &kp Q  &kp W  &kp E      &kp R                 &kp T      &kp Y   &kp U   &kp I      &kp O    &kp P     &trans
-&mt LEFT_SHIFT M  &kp A  &kp S  &kp D      &kp F                 &kp G      &kp H   &kp J   &kp K      &kp L    &kp SEMI  &trans
-&mt LEFT_ALT P    &kp Z  &kp X  &kp C      &kp V                 &kp B      &kp N   &kp M   &kp COMMA  &kp DOT  &kp FSLH  &trans
-                                &kp SPACE  &mt LEFT_CONTROL TAB  &kp ESC    &trans  &tog 3  &trans
+&kp I           &kp Q  &kp W  &kp E      &kp R                 &kp T                    &kp Y   &kp U   &kp I      &kp O    &kp P     &trans
+&mt TAB M       &kp A  &kp S  &kp D      &kp F                 &kp G                    &kp H   &kp J   &kp K      &kp L    &kp SEMI  &trans
+&mt LEFT_ALT P  &kp Z  &kp X  &kp C      &kp V                 &kp B                    &kp N   &kp M   &kp COMMA  &kp DOT  &kp FSLH  &trans
+                              &kp SPACE  &mt LEFT_CONTROL TAB  &mt LEFT_SHIFT ESCAPE    &trans  &tog 3  &trans
             >;
+        };
+
+        layer_4 {
+            bindings = <
+&trans  &trans          &trans      &kp K_VOLUME_UP  &kp K_VOLUME_DOWN  &trans          &trans  &kp F1  &kp F2   &kp F3   &kp F4   &trans
+&trans  &kp K_PREVIOUS  &kp K_NEXT  &kp K_MUTE       &kp K_PLAY_PAUSE   &kp K_STOP      &trans  &kp F5  &kp F6   &kp F7   &kp F8   &trans
+&trans  &trans          &trans      &trans           &trans             &kp LEFT_ALT    &trans  &kp F9  &kp F10  &kp F11  &kp F12  &trans
+                                    &trans           &trans             &trans          &trans  &trans  &trans
+            >;
+        };
+    };
+
+    conditional_layers {
+        compatible = "zmk,conditional-layers";
+
+        funcAndMedia {
+            if-layers = <1 2>;
+            then-layer = <4>;
         };
     };
 };
