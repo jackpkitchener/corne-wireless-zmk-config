@@ -21,6 +21,7 @@
         funclayer {
             bindings = <&sl 4>;
             key-positions = <37 40>;
+            layers = <0 1 2>;
         };
     };
 
